@@ -7,16 +7,15 @@ import * as THREE from "three"
 import * as firebase from "firebase/app"
 import "firebase/database"
 
-const sheetPathBase = "150zeTrAHuKojbTjE5Nn-uv_WoLsbSSBGQU3NRPwHz4s/"
+const sheetPathBase = "16KxukCtLcg1mDfR3S4joQVreji31t5s-QMFN_-HplF0/"
 const firebaseConfig = {
-    apiKey: "AIzaSyA8QBx9NQSVt_e_VM-9E3IRnxJVYPrFbhA",
-    authDomain: "blocks-72e6d.firebaseapp.com",
-    databaseURL: "https://blocks-72e6d.firebaseio.com",
-    projectId: "blocks-72e6d",
-    storageBucket: "blocks-72e6d.appspot.com",
-    messagingSenderId: "1098390843373",
-    appId: "1:1098390843373:web:68dde7d82dc9d8025e01e4",
-    measurementId: "G-JSCGYR4TVQ",
+    apiKey: "AIzaSyCwN6ks-now1sWq4LgsMFXEc7-ZG8g0gJY",
+    authDomain: "sheet-9537c.firebaseapp.com",
+    databaseURL: "https://sheet-9537c.firebaseio.com",
+    projectId: "sheet-9537c",
+    storageBucket: "sheet-9537c.appspot.com",
+    messagingSenderId: "930956368841",
+    appId: "1:930956368841:web:1f235a078f938f27fca618",
 }
 
 const count = 15625
@@ -157,7 +156,7 @@ export default function Rects() {
                 }}
                 target="_blank"
                 rel="noreferrer"
-                href="https://docs.google.com/spreadsheets/d/150zeTrAHuKojbTjE5Nn-uv_WoLsbSSBGQU3NRPwHz4s/edit?usp=sharing"
+                href="https://docs.google.com/spreadsheets/d/16KxukCtLcg1mDfR3S4joQVreji31t5s-QMFN_-HplF0/edit"
             >
                 open sheet
             </a>
