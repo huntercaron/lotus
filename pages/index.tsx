@@ -1,3 +1,4 @@
+import Head from "next/head"
 import * as React from "react"
 import { useMemo, useRef, useEffect } from "react"
 import { Canvas, useThree } from "react-three-fiber"
@@ -109,6 +110,10 @@ export default function Rects() {
 
     return (
         <>
+            <Head>
+                <title>sheet</title>
+                <link rel="icon" href="/favicon.ico" />
+            </Head>
             <Canvas
                 style={{
                     height: "100%",
