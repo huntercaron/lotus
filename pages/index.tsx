@@ -1,7 +1,7 @@
 import Head from "next/head"
 import * as React from "react"
 import { useMemo, useRef, useEffect } from "react"
-import { Canvas, useThree } from "react-three-fiber"
+import { Canvas, useThree, useFrame } from "react-three-fiber"
 import { OrbitControls } from "drei"
 import * as THREE from "three"
 import * as firebase from "firebase/app"
@@ -104,9 +104,25 @@ function InnerRects() {
     )
 }
 
-export default function Rects() {
-    // const randomRotation = useMemo(() => Math.random() * Math.PI, [])
+function InnerScene() {
+    const mesh = useRef<THREE.Object3D>()
+    useFrame(() => ( mesh.current.rotation.y += 0.01))
+    
+    return (
+        <group ref={mesh}>
+        <group
+        
+            rotation={[0, 0, -Math.PI]}
+            scale={[0.5, 0.5, 0.5]}
+            position={[-6.25, 6.25, 6.25]}
+        >
+            <InnerRects />
+        </group>
+        </group>
+    )
+}
 
+export default function Rects() {
     return (
         <>
             <Head>
@@ -119,7 +135,7 @@ export default function Rects() {
                     width: "100%",
                     position: "fixed",
                 }}
-                invalidateFrameloop
+                // invalidateFrameloop
                 gl={{ antialias: false, alpha: false }}
                 camera={{
                     position: [0, 0, 25],
@@ -128,17 +144,10 @@ export default function Rects() {
                 }}
                 onCreated={({ gl }) => gl.setClearColor("white")}
             >
+                <InnerScene />
                 <ambientLight />
                 <pointLight position={[150, 150, 150]} intensity={0.55} />
-
-                <group
-                    rotation={[0, 0, -Math.PI]}
-                    scale={[0.5, 0.5, 0.5]}
-                    position={[-6.25, 6.25, 3.25]}
-                >
-                    <InnerRects />
-                </group>
-
+                
                 <OrbitControls />
             </Canvas>
             <a
