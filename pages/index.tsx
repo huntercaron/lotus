@@ -136,7 +136,7 @@ export default function Rects() {
         {/* @ts-ignore */}
         <OrbitControls />
       </Canvas>
-      <a
+      <p
         style={{
           background: "black",
           borderRadius: "50px",
@@ -144,17 +144,20 @@ export default function Rects() {
           padding: "5px 12px 8px",
           bottom: 15,
           left: 15,
+          margin: 0,
           fontSize: "24px",
           textAlign: "center",
           color: "white",
           height: "auto",
         }}
-        target="_blank"
-        rel="noreferrer"
-        href="https://docs.google.com/spreadsheets/d/16KxukCtLcg1mDfR3S4joQVreji31t5s-QMFN_-HplF0/edit"
+        onClick={() =>
+          alert(
+            "The experiment is now over, thank you to everyone who participated! The current blocks will remain here as an archive."
+          )
+        }
       >
         open sheet
-      </a>
+      </p>
     </>
   );
 }
