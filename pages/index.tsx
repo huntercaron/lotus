@@ -1,8 +1,8 @@
 import Head from "next/head";
 import * as React from "react";
 import { useMemo, useRef, useEffect } from "react";
-import { Canvas, useThree, useFrame } from "react-three-fiber";
-import { OrbitControls } from "drei";
+import { Canvas, useThree, useFrame } from "@react-three/fiber";
+import { OrbitControls } from "@react-three/drei";
 import * as THREE from "three";
 
 import { data } from "../lib/data";
@@ -116,19 +116,24 @@ export default function Rects() {
           width: "100%",
           position: "fixed",
         }}
-        // invalidateFrameloop
+        dpr={[1, 1.5]}
+        linear
+        colorManagement={false}
         gl={{ antialias: false, alpha: false }}
         camera={{
           position: [0, 0, 25],
           near: 5,
           far: 150,
         }}
-        onCreated={({ gl }) => gl.setClearColor("white")}
+        onCreated={({ gl }) => {
+          gl.toneMapping = THREE.NoToneMapping;
+          gl.setClearColor("white");
+        }}
       >
         <InnerScene />
-        <ambientLight />
-        <pointLight position={[150, 150, 150]} intensity={0.55} />
-
+        <ambientLight intensity={2} />
+        <pointLight position={[150, 150, 150]} intensity={1} />
+        {/* @ts-ignore */}
         <OrbitControls />
       </Canvas>
       <a
